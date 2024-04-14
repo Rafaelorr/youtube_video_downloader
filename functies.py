@@ -20,4 +20,7 @@ def list_queue(download_queue:list):
 
 def download_queue(download_queue:list):
   for i in range(len(download_queue/3)):
-    pass
+    link = download_queue[i]
+    opitie = download_queue[i+1]
+    file_extension = download_queue[i+2]
+    download_video(link=link,opitie=opitie,file_extension=file_extension)
