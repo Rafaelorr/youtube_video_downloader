@@ -13,7 +13,13 @@ def download_video(link:str,opitie:str,file_extension:str):
   video.download(file_extension=file_extension)
 
 def add_to_queue(download_queue:list):
-  pass
+  link = input("video link: ")
+  opitie = input("opitie highest_resolution, audio_only of lowest_resolution: ")
+  file_extension = input("video file extension: ")
+  download_queue.append(link)
+  download_queue.append(opitie)
+  download_queue.append(file_extension)
+  print("nieuwe video toegevoegd aan download_queue")
 
 def list_queue(download_queue:list):
   pass
