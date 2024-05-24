@@ -22,8 +22,17 @@ def add_to_queue(download_queue:list) -> list:
   print("nieuwe video toegevoegd aan download_queue")
   return download_queue
 
-def list_queue(download_queue:list):
-  pass
+def list_queue(download_queue:list) -> None:
+  for item in download_queue:
+    if download_queue.index(item) % 4 == 0 or download_queue.index(item) == 0:
+      print("video link: ",item)
+      continue
+    if download_queue.index(item) % 2 == 0:
+      print("video download opitie: ", item)
+      continue
+    if download_queue.index(item) % 3 == 0:
+      print("video file extension: ", item)
+      continue
 
 def download_queue(download_queue:list) -> None:
   for i in range(len(download_queue/3)):
