@@ -35,6 +35,7 @@ def list_queue(download_queue_list:list) -> None:
       continue
 
 def download_queue(download_queue_list:list) -> None:
+  # ! loop bug video info loop niet volledig
   for i in range(len(download_queue_list/3)):
     link:str = download_queue_list[i]
     opitie:str = download_queue_list[i+1]
