@@ -40,3 +40,32 @@ def download_queue(download_queue_list:list) -> None:
     opitie:str = download_queue_list[i+1]
     file_extension:str = download_queue_list[i+2]
     download_video(link=link,opitie=opitie,file_extension=file_extension)
+
+download_queue_list:list = []
+
+# user command loop
+while True:
+  command:str = input("command: ")
+  if command == "add_to_queue":
+    add_to_queue(download_queue_list=download_queue_list)
+  elif command == "download_queue":
+    download_queue(download_queue_list=download_queue_list)
+  elif command == "exit":
+    want_exit:str = input("wil je echt stoppen? y/n ")
+    while not want_exit == "y" and not want_exit == "n":
+      print("foute input")
+      want_exit:str = input("xil je echt stoppen ? y/n ")
+    if want_exit == "y":
+      exit()
+    continue
+  elif command == "list_queue":
+    list_queue(download_queue_list=download_queue_list)
+  else:
+    # help
+    print("""
+      add_to_queue: lorem
+      download_queue: lorem,
+      list_queue: lorem,
+      exit: lorem,
+      help: lorem
+    """)
