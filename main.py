@@ -37,6 +37,16 @@ def download_queue(download_queue_list:list) -> None:
     download_video(link=link,opitie=opitie,file_extension=file_extension)
     i + 2
 
+def help():
+  print("""
+   add_to_queue: voegt video toe aan de download_queue
+   download_queue: download de queue,
+   list_queue: toont de queue als een python list,
+   exit: om het programma te stoppen WAARSCHUWING je download_queue blijf niet bewaart als je het programma stop,
+   clear: maak de command line leeg,
+   help: lijst van alle commands en hun functie.
+  """) 
+
 download_queue_list:list = []
 
 # user command loop
@@ -50,7 +60,7 @@ while True:
     want_exit:str = input("wil je echt stoppen? y/n ")
     while not want_exit == "y" and not want_exit == "n":
       print("foute input")
-      want_exit:str = input("xil je echt stoppen ? y/n ")
+      want_exit:str = input("wil je echt stoppen ? y/n ")
     if want_exit == "y":
       exit()
     continue
@@ -59,12 +69,4 @@ while True:
   elif command == "clear":
     os.system('cls' if os.name == 'nt' else 'clear')
   else:
-    # help
-    print("""
-    add_to_queue: voegt video toe aan de download_queue
-    download_queue: download de queue,
-    list_queue: toont de queue als een python list,
-    exit: om het programma te stoppen WAARSCHUWING je download_queue blijf niet bewaart als je het programma stop,
-    clear: maak de command line leeg,
-    help: lijst van alle commands en hun functie.
-    """)
+    help()
