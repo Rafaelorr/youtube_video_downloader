@@ -1,16 +1,18 @@
 from pytube import YouTube
 
-def download_video(link:str,opitie:str,file_extension:str) -> None:
-  yt:YouTube = YouTube(link)
-  if opitie == 'highest_resolution':
-    video = yt.streams.get_highest_resolution()
-  elif opitie == 'audio_only':
-    video = yt.streams.get_audio_only()
-  elif opitie == 'lowest_resolution':
-    video = yt.streams.get_lowest_resolution()
-  else:
-    print('')
-  video.download(file_extension=file_extension)
+def download_video(link:str, opitie:str, file_extension:str) -> None:
+    yt:YouTube = YouTube(link)
+    
+    if opitie == 'highest_resolution':
+        video = yt.streams.get_highest_resolution()
+    elif opitie == 'audio_only':
+        video = yt.streams.get_audio_only()
+    elif opitie == 'lowest_resolution':
+        video = yt.streams.get_lowest_resolution()
+    else:
+        print('')
+    
+    video.download()
 
 def add_to_queue(download_queue_list:list) -> list:
   link:str = input("video link: ")
@@ -23,24 +25,16 @@ def add_to_queue(download_queue_list:list) -> list:
   return download_queue_list
 
 def list_queue(download_queue_list:list) -> None:
-  for item in download_queue_list:
-    if download_queue_list.index(item) % 4 == 0 or download_queue_list.index(item) == 0:
-      print("video link: ",item)
-      continue
-    if download_queue_list.index(item) % 2 == 0:
-      print("video download opitie: ", item)
-      continue
-    if download_queue_list.index(item) % 3 == 0:
-      print("video file extension: ", item)
-      continue
+  print(download_queue_list)
 
 def download_queue(download_queue_list:list) -> None:
-  # ! loop bug video info loop niet volledig
-  for i in range(len(download_queue_list/3)):
+  len_queue:int = len(download_queue_list)
+  for i in range(len_queue):
     link:str = download_queue_list[i]
     opitie:str = download_queue_list[i+1]
     file_extension:str = download_queue_list[i+2]
     download_video(link=link,opitie=opitie,file_extension=file_extension)
+    i + 2
 
 download_queue_list:list = []
 
