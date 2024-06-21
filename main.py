@@ -58,9 +58,10 @@ while True:
   else:
     # help
     print("""
-      add_to_queue: lorem
-      download_queue: lorem,
-      list_queue: lorem,
-      exit: lorem,
-      help: lorem
+    add_to_queue: voegt video toe aan de download_queue
+    download_queue: download de queue,
+    list_queue: toont de queue als een python list,
+    exit: om het programma te stoppen WAARSCHUWING je download_queue blijf niet bewaart als je het programma stop,
+    clear: maak de command line leeg,
+    help: lijst van alle commands en hun functie.
     """)
