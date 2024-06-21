@@ -1,4 +1,5 @@
 from pytube import YouTube
+import os
 
 def download_video(link:str, opitie:str, file_extension:str) -> None:
     yt:YouTube = YouTube(link)
@@ -55,6 +56,8 @@ while True:
     continue
   elif command == "list_queue":
     list_queue(download_queue_list=download_queue_list)
+  elif command == "clear":
+    os.system('cls' if os.name == 'nt' else 'clear')
   else:
     # help
     print("""
