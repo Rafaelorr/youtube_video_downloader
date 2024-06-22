@@ -1,7 +1,7 @@
 from pytube import YouTube
 import os
 
-def download_video(link:str, opitie:str, file_extension:str) -> None:
+def download_video(link:str, opitie:str) -> None:
     yt:YouTube = YouTube(link)
     
     if opitie == 'highest_resolution':
@@ -18,10 +18,8 @@ def download_video(link:str, opitie:str, file_extension:str) -> None:
 def add_to_queue(download_queue_list:list) -> list:
   link:str = input("video link: ")
   opitie:str = input("opitie highest_resolution, audio_only of lowest_resolution: ")
-  file_extension:str = input("video file extension: ")
   download_queue_list.append(link)
   download_queue_list.append(opitie)
-  download_queue_list.append(file_extension)
   print("nieuwe video toegevoegd aan download_queue_list")
   return download_queue_list
 
@@ -32,9 +30,11 @@ def download_queue(download_queue_list:list) -> None:
   len_queue:int = len(download_queue_list)
   for i in range(len_queue):
     link:str = download_queue_list[i]
-    opitie:str = download_queue_list[i+1]
-    file_extension:str = download_queue_list[i+2]
-    download_video(link=link,opitie=opitie,file_extension=file_extension)
+    try:
+      opitie:str = download_queue_list[i+1]
+    except:
+      return
+    download_video(link=link,opitie=opitie)
     i + 2
 
 def help():
