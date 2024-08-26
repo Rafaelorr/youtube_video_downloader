@@ -3,18 +3,22 @@ import os
 
 def download_channel(channel_link:str) -> None:
   channel = Channel(channel_link)
-  for url in channel.video_urls[:3]:
+
+  for url in channel.video_urls:
     download_video(url)
 
 def download_playlist(playlist_link:str) -> None:
   playlist = Playlist(playlist_link)
-  for url in playlist.video_urls[:3]:
+
+  for url in playlist.video_urls:
     download_video(url)
 
 def download_video(link:str) -> None:
   yt:YouTube = YouTube(link)
+  
+  #! Bug met video object, weet niet wat het is.
   video = yt.streams.get_lowest_resolution()
-    
+  print("Download video")  
   video.download()
 
 def add_to_queue(download_queue_list:list) -> list:
