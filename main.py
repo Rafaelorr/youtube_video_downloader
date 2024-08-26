@@ -1,25 +1,25 @@
-from pytube import YouTube
+from pytube import YouTube, Playlist, Channel
 import os
 
-def download_video(link:str, opitie:str) -> None:
-    yt:YouTube = YouTube(link)
+def download_channel(channel_link:str) -> None:
+  channel = Channel(channel_link)
+  for url in channel.video_urls[:3]:
+    download_video(url)
+
+def download_playlist(playlist_link:str) -> None:
+  playlist = Playlist(playlist_link)
+  for url in playlist.video_urls[:3]:
+    download_video(url)
+
+def download_video(link:str) -> None:
+  yt:YouTube = YouTube(link)
+  video = yt.streams.get_lowest_resolution()
     
-    if opitie == 'highest_resolution':
-        video = yt.streams.get_highest_resolution()
-    elif opitie == 'audio_only':
-        video = yt.streams.get_audio_only()
-    elif opitie == 'lowest_resolution':
-        video = yt.streams.get_lowest_resolution()
-    else:
-        print('')
-    
-    video.download()
+  video.download()
 
 def add_to_queue(download_queue_list:list) -> list:
   link:str = input("video link: ")
-  opitie:str = input("opitie highest_resolution, audio_only of lowest_resolution: ")
   download_queue_list.append(link)
-  download_queue_list.append(opitie)
   print("nieuwe video toegevoegd aan download_queue_list")
   return download_queue_list
 
@@ -30,12 +30,7 @@ def download_queue(download_queue_list:list) -> None:
   len_queue:int = len(download_queue_list)
   for i in range(len_queue):
     link:str = download_queue_list[i]
-    try:
-      opitie:str = download_queue_list[i+1]
-    except:
-      return
-    download_video(link=link,opitie=opitie)
-    i + 2
+    download_video(link=link)
 
 def help():
   print("""
@@ -44,6 +39,8 @@ def help():
    list_queue: toont de queue als een python list,
    exit: om het programma te stoppen WAARSCHUWING je download_queue blijf niet bewaart als je het programma stop,
    clear: maak de command line leeg,
+   download_playlist: download een volledige playlist,
+   download_channel: download een volledig youtube kanaal,
    help: lijst van alle commands en hun functie.
   """) 
 
@@ -66,6 +63,12 @@ while True:
     continue
   elif command == "list_queue":
     list_queue(download_queue_list=download_queue_list)
+  elif command == "download_playlist":
+    playlist_link :str = input("playlist link: ")
+    download_playlist(playlist_link)
+  elif command == "download_channel":
+    channel_link :str = input("channel link: ")
+    download_channel(channel_link)
   elif command == "clear":
     os.system('cls' if os.name == 'nt' else 'clear')
   else:
