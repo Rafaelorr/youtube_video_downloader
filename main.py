@@ -1,4 +1,4 @@
-from pytube import YouTube, Playlist, Channel
+from pytubefix import YouTube, Playlist, Channel
 import os
 
 def download_channel(channel_link:str) -> None:
@@ -6,19 +6,19 @@ def download_channel(channel_link:str) -> None:
 
   for url in channel.video_urls:
     download_video(url)
+  print("De download is klaar")
 
 def download_playlist(playlist_link:str) -> None:
   playlist = Playlist(playlist_link)
 
   for url in playlist.video_urls:
     download_video(url)
+  print("De download is klaar")
 
 def download_video(link:str) -> None:
   yt:YouTube = YouTube(link)
-  
-  #! Bug met video object, weet niet wat het is.
   video = yt.streams.get_lowest_resolution()
-  print("Download video")  
+
   video.download()
 
 def add_to_queue(download_queue_list:list) -> list:
@@ -35,6 +35,7 @@ def download_queue(download_queue_list:list) -> None:
   for i in range(len_queue):
     link:str = download_queue_list[i]
     download_video(link=link)
+  print("De download is klaar")
 
 def help():
   print("""
