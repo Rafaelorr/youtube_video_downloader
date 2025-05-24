@@ -1,28 +1,35 @@
-from pytubefix import YouTube, Playlist, Channel
+import yt_dlp
 
 def download_channel_video(channel_link:str) -> None:
-  channel = Channel(channel_link)
 
-  for url in channel.video_urls:
-    download_video(url)
-  print("De download is klaar")
+  ydl_opts = {
+    'ignoreerrors': True,
+    'extract_flat': False,  # Set to True if you want only metadata without downloading
+    'playlistend': None,    # Download all videos
+    'outtmpl': 'downloads/%(title)s.%(ext)s',  # Output directory and filename pattern
+    'format': 'bestvideo[height<=1080]+bestaudio/best[height<=1080]',
+    'noplaylist': False, 
+    'playliststart': 1,
+  }
+
+  with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+    ydl.download([channel_link])
 
 def download_playlist_video(playlist_link:str) -> None:
-  playlist = Playlist(playlist_link)
+  ydl_opts = {
+    'outtmpl': 'downloads/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s',
+    'format': 'bestvideo[height<=1080]+bestaudio/best[height<=1080]',
+  }
+  with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+    ydl.download([playlist_link])
 
-  for url in playlist.video_urls:
-    download_video(url)
-  print("De download is klaar")
 
 def download_video(link:str) -> None:
-  yt:YouTube = YouTube(link)
-  video = yt.streams.get_lowest_resolution()
+  ydl_opts = {'outtmpl': 'downloads/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s',
+              'format': 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'}
+  with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+    ydl.download([link])
 
-  video.download()
-
-def download_video_queue(download_queue_list:list) -> None:
-  len_queue:int = len(download_queue_list)
-  for i in range(len_queue):
-    link:str = download_queue_list[i]
-    download_video(link=link)
-  print("De download is klaar")
+def download_video_queue(download_queue_list:list[str]) -> None:
+  for video in download_queue_list:
+    download_video(video)
