@@ -1,3 +1,9 @@
+# ignore project files
+__pycache__/
+
+
+# ignore downloads
 *.mp4
 *mp3
-__pycache__/
+*.ytdl
+*.part
