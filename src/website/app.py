@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, send_file, redirect, flash, after_this_request
 from zipfile import ZipFile
+import threading
 import shutil
 import yt_dlp
 import tempfile
@@ -9,23 +10,19 @@ app = Flask(__name__)
 app.secret_key = 'dev'  # Required for flashing messages
 
 
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+def download_video_in_background(url, ydl_opts):
+    threading.Thread(target=download_video, args=(url, ydl_opts)).start()
+
 def download_with_yt_dlp(link: str, options: dict) -> tempfile.NamedTemporaryFile:
     temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=options.get('suffix', '.mp4'))
-
-    ydl_opts = {
-        'outtmpl': temp_file.name,
-        **options
-    }
-
+    ydl_opts = {'outtmpl': temp_file.name, **options}
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([link])
-
     return temp_file
-
-
-@app.route('/')
-def index():
-    return render_template('index.html')
 
 @app.route('/download_video', methods=['POST'])
 def download_video():
@@ -36,6 +33,7 @@ def download_video():
                 'format': 'bestvideo[height<=1080]+bestaudio/best[height<=1080]/best',
                 'outtmpl': os.path.join(tmpdir, '%(title)s.%(ext)s'),
                 'quiet': True,
+                'merge_output_format': 'mp4',  # Ensure the final output is in MP4
             }
 
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -46,6 +44,7 @@ def download_video():
     except Exception as e:
         flash(f"Fout bij downloaden van video: {str(e)}")
         return redirect('/')
+
 
 @app.route('/download_audio', methods=['POST'])
 def download_audio():
@@ -61,7 +60,7 @@ def download_audio():
                 'postprocessors': [{
                     'key': 'FFmpegExtractAudio',
                     'preferredcodec': 'mp3',
-                    'preferredquality': '192',
+                    'preferredquality': '190',
                 }],
             }
 
@@ -88,24 +87,23 @@ def download_playlist_to_temp(link: str, ydl_opts: dict, suffix: str):
 
         return zip_path
 
-
 @app.route('/download_playlist_video', methods=['POST'])
 def download_playlist_video():
     url = request.form['url']
     try:
         options = {
-            'format': 'bestvideo[height<=1080]+bestaudio/best[height<=1080]/best',
+            'format': 'bestvideo[height<=720]+bestaudio/best[height<=720]/best',
             'noplaylist': False,
             'quiet': True,
-            'playlistend': 10  # You can increase this if needed
+            'playlistend': 10,  # You can increase this if needed
+            'merge_output_format': 'mp4',  # Ensure the playlist videos are in MP4
         }
 
         zip_path = download_playlist_to_temp(url, options, '.zip')
-        return send_file(zip_path, as_attachment=True, download_name="playlist_video.zip")
+        return send_file(zip_path, as_attachment=True, download_name="playlist_video.mp4.zip")
     except Exception as e:
         flash(f"Fout bij downloaden van playlist (video): {str(e)}")
         return redirect('/')
-
 
 @app.route('/download_playlist_audio', methods=['POST'])
 def download_playlist_audio():
@@ -117,11 +115,11 @@ def download_playlist_audio():
             'audio_format': 'mp3',
             'noplaylist': False,
             'quiet': True,
-            'playlistend': 10,
+            'playlistend': 60,
             'postprocessors': [{
                 'key': 'FFmpegExtractAudio',
                 'preferredcodec': 'mp3',
-                'preferredquality': '192',
+                'preferredquality': '190',
             }],
         }
 
