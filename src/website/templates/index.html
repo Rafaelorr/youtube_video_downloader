@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>YouTube Downloader</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>YouTube Downloader</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="/download_video">
+      <input type="url" name="url" placeholder="YouTube link" required>
+      <button type="submit">Download Video</button>
+    </form>
+
+    <form method="POST" action="/download_audio">
+      <input type="url" name="url" placeholder="YouTube link" required>
+      <button type="submit">Download Audio</button>
+    </form>
+
+    <form method="POST" action="/download_playlist_video">
+      <input type="url" name="url" placeholder="Playlist link" required>
+      <button type="submit">Download Playlist (Video)</button>
+    </form>
+
+    <form method="POST" action="/download_playlist_audio">
+      <input type="url" name="url" placeholder="Playlist link" required>
+      <button type="submit">Download Playlist (Audio)</button>
+    </form>
+  </div>
+</body>
+</html>
