@@ -1,10 +1,10 @@
 # ignore project files
 __pycache__/
 
-
 # ignore downloads
 *.mp4
-*mp3
+*.mp3
+*.mkv
 *.ytdl
 *.part
 *.webm
