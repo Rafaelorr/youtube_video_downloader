@@ -5,7 +5,7 @@ def download_audio(link: str) -> None:
     'extract_audio': True,
     'format': 'bestaudio/best[height<=1080]',
     'outtmpl': 'downloads/%(title)s.mp3',
-    'ignoreerrors': True,
+    'ignoreerrors': True
   }
 
   try:
@@ -45,11 +45,18 @@ def download_audio_queue(download_queue_list: list[str]) -> None:
     print(f"[INFO] Downloaden (audio): {video}")
     download_audio(video)
 
-def download_playlist_audio(playlist_link: str) -> None:
+def download_playlist_audio(playlist_link: str, toon_playlist_index : bool = True) -> None:
+  if toon_playlist_index:
+    ydl_opts = {
+      'extract_audio': True,
+      'format': 'bestaudio/best[height<=1080]',
+      'outtmpl': 'downloads/%(playlist)s/%(playlist_index)s - %(title)s.mp3',
+      'ignoreerrors': True,
+    }
   ydl_opts = {
     'extract_audio': True,
     'format': 'bestaudio/best[height<=1080]',
-    'outtmpl': 'downloads/%(playlist)s/%(playlist_index)s - %(title)s.mp3',
+    'outtmpl': 'downloads/%(playlist)s/%(title)s.mp3',
     'ignoreerrors': True,
   }
 
