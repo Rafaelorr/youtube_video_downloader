@@ -41,7 +41,8 @@ while True:
 
   elif command == "download_playlist_video":
     playlist_link :str = input("playlist link: ")
-    download_playlist_video(playlist_link)
+    toon_playlist_index :bool = bool(input("voeg playlist index toe aan de bestandnamen (enter als je dat niet wilt): "))
+    download_playlist_video(playlist_link, toon_playlist_index=toon_playlist_index)
 
   elif command == "download_channel_video":
     channel_link :str = input("channel link: ")
@@ -49,7 +50,8 @@ while True:
 
   elif command == "download_playlist_audio":
     playlist_link :str = input("playlist link: ")
-    download_playlist_audio(playlist_link)
+    toon_playlist_index :bool = bool(input("voeg playlist index toe aan de bestandnamen (enter als je dat niet wilt): "))
+    download_playlist_audio(playlist_link, toon_playlist_index=toon_playlist_index)
 
   elif command == "download_channel_audio":
     channel_link :str = input("channel link: ")
