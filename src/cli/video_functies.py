@@ -6,7 +6,7 @@ def download_channel_video(channel_link: str) -> None:
     'extract_flat': False,
     'playlistend': None,
     'outtmpl': 'downloads/%(title)s.%(ext)s',
-    'format': 'bestvideo[height<=1080]+bestaudio/best[height<=1080]',
+    'format': 'bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080][ext=mp4]',
     'noplaylist': False,
     'playliststart': 1,
   }
@@ -24,13 +24,14 @@ def download_playlist_video(playlist_link: str, toon_playlist_index : bool = Tru
     ydl_opts = {
       'ignoreerrors': True,
       'outtmpl': 'downloads/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s',
-      'format': 'bestvideo[height<=1080]+bestaudio/best[height<=1080]',
+      'format': 'bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080][ext=mp4]',
     }
-  ydl_opts = {
-    'ignoreerrors': True,
-    'outtmpl': 'downloads/%(playlist)s/%(title)s.%(ext)s',
-    'format': 'bestvideo[height<=1080]+bestaudio/best[height<=1080]',
-  }
+  else:
+    ydl_opts = {
+      'ignoreerrors': True,
+      'outtmpl': 'downloads/%(playlist)s/%(title)s.%(ext)s',
+      'format': 'bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080][ext=mp4]',
+    }
 
   try:
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -45,13 +46,14 @@ def download_video(link: str, toon_playlist_index : bool = True) -> None:
     ydl_opts = {
       'ignoreerrors': True,
       'outtmpl': 'downloads/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s',
-      'format': 'bestvideo[height<=1080]+bestaudio/best[height<=1080]',
+      'format': 'bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080][ext=mp4]',
     }
-  ydl_opts = {
-    'ignoreerrors': True,
-    'outtmpl': 'downloads/%(playlist)s/%(title)s.%(ext)s',
-    'format': 'bestvideo[height<=1080]+bestaudio/best[height<=1080]',
-  }
+  else:
+    ydl_opts = {
+      'ignoreerrors': True,
+      'outtmpl': 'downloads/%(playlist)s/%(title)s.%(ext)s',
+      'format': 'bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080][ext=mp4]',
+    }
 
   try:
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
