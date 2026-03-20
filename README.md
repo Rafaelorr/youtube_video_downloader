@@ -38,30 +38,30 @@ python3 main.py
 Run de `help` command uit om alle commands te zien.
 
 ## Command lijst
-
-**add\_to\_queue**: voegt een link toe aan de download queue <br>
-**download\_video\_queue**: download de download queue als video <br>
-**download\_audio\_queue**: download de download queue als audio <br>
-**list\_queue**: prints alle links in de download queue <br>
-**download\_playlist\_video**: download alle videos in een playlist als video <br>
-**download\_playlist\_audio**: download alle videos in een playlist als audio <br>
-**download\_channel\_video**: download alle videos van een kanaal als video <br>
-**download\_channel\_audio**: download alle videos van een kanaal als audio <br>
-**download\_video**: download een video als video <br>
-**download\_audio**: download een video als audio <br>
-**clear**: leegt de command-line <br>
-**exit**: stopt het programma, PAS OP de download queue wordt geleegt als het programma stopt <br>
-**help**: print alle commands en functie
+| Command | Beschrijving|
+| :------ | :---------- |
+| add_to_queue | Voegt een link toe aan de download queue |
+| download_video_queue | Download de download queue als video |
+| download_audio_queue | Download de download queue als audio |
+| list_queue | Print alle links in de download queue |
+| download_playlist_video | Download alle videos in een playlist als video |
+| download_playlist_audio | Download alle videos in een playlist als audio |
+| download_channel_video | Download alle videos van een kanaal als video |
+| download_channel_audio | Download alle videos van een kanaal als audio |
+| download_video | Download een video als video |
+| download_audio | Download een video als audio |
+| clear | Leegt de command-line |
+| exit | Stopt het programma. De download queue wordt niet opgeslagen |
+| help | Print alle commands en hun functie |
 
 ## Details
 
-De downloadresolutie is 1080p.
-
+De downloadresolutie is 1080p. <br>
 Als 1080p geen optie is dan download het programma een resolutie lager.
 
 ## Bijdragen
 
-Wil je bijdragen? Voel je vrij om de repo te forken en een pull request in te dienen of issues te melden voor verbeteringen.
+Wil je bijdragen? Voel je vrij om het repo te forken en een pull request of issue te maken.
 
 ## Licentie
 
@@ -69,15 +69,15 @@ Dit project is te gebruiken onder de GPL-licentie.
 
 ## To do's
 
-* download resolutie kunnen veranderd worden door de gebruiker
-* standaard instellingen config
-* download direct via cli
+- [ ] Download resolutie kunnen veranderd worden door de gebruiker
+- [ ] Standaard instellingen config
+- [ ] Download via cli
 
 ---
 
 ## Problemen oplossen
 
-### ❌ 403 Forbidden Error
+### 403 Forbidden Error
 
 Dit gebeurt vaak wanneer YouTube wijzigingen doorvoert of wanneer de gebruikte versie van `yt_dlp` verouderd is.
 
@@ -95,7 +95,7 @@ python3 -m pip install -U yt_dlp
 
 ---
 
-### ❌ `Unsupported URL` of `Unable to extract` Errors
+### `Unsupported URL` of `Unable to extract` Errors
 
 Deze fouten ontstaan meestal door veranderingen in de structuur van YouTube-links.
 
@@ -106,9 +106,9 @@ Deze fouten ontstaan meestal door veranderingen in de structuur van YouTube-link
 
 ---
 
-### ❌ `HTTP Error 429: Too Many Requests`
+### `HTTP Error 429: Too Many Requests`
 
-YouTube blokkeert tijdelijk jouw IP vanwege te veel verzoeken.
+YouTube throttlet tijdelijk jouw IP.
 
 **Oplossing:**
 
@@ -117,7 +117,7 @@ YouTube blokkeert tijdelijk jouw IP vanwege te veel verzoeken.
 
 ---
 
-### ✅ Algemene tips bij fouten
+### Algemene tips bij fouten
 
 * Update altijd eerst `yt_dlp` bij problemen.
 * Gebruik Python 3.x.
