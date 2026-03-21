@@ -1,6 +1,21 @@
 # YouTube Video Downloader
 
-Een cli Python-tool voor het downloaden van YouTube-video's.
+![Python 3.x](https://img.shields.io/badge/python-3.x-blue)
+![License: GPL](https://img.shields.io/badge/license-GPL-green)
+![Status: Active](https://img.shields.io/badge/status-active-brightgreen)
+
+Een cli Python-tool voor het downloaden van YouTube-video's, playlists en kanalen.
+
+## Functies
+
+- [x] Download YouTube-video's als video (mp4) of audio (mp3)
+- [x] Download volledige playlists
+- [x] Download alle video's van een kanaal
+- [x] Queue-systeem voor meerdere downloads
+- [x] Automatische resolutie-aanpassing (standaard 1080p)
+- [ ] Configureerbare download-resolutie (in progress)
+- [ ] Config-bestand voor standaard instellingen (in progress)
+- [ ] CLI-argumenten support (in progress)
 
 ## Vereisten
 
@@ -66,12 +81,6 @@ Wil je bijdragen? Voel je vrij om het repo te forken en een pull request of issu
 ## Licentie
 
 Dit project is te gebruiken onder de GPL-licentie.
-
-## To do's
-
-- [ ] Download resolutie kunnen veranderd worden door de gebruiker
-- [ ] Standaard instellingen config
-- [ ] Download via cli
 
 ---
 
