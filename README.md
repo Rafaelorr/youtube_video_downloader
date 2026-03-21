@@ -50,6 +50,18 @@ Run het script:
 python3 main.py
 ```
 
+Download één publieke video:
+
+```bash
+download_video
+```
+
+Sluit het script af:
+
+```bash
+exit
+```
+
 Run de `help` command uit om alle commands te zien.
 
 ## Command lijst
