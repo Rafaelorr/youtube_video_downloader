@@ -1,11 +1,32 @@
 # YouTube Video Downloader
 
-Een cli Python-tool voor het downloaden van YouTube-video's.
+![Python 3.x](https://img.shields.io/badge/python-3.x-blue)
+![License: GPL](https://img.shields.io/badge/license-GPL-green)
+![Status: Active](https://img.shields.io/badge/status-active-brightgreen)
+
+Een cli Python-tool voor het downloaden van YouTube-video's, playlists en kanalen.
+
+---
+
+## Functies
+
+- [x] Download YouTube-video's als video (mp4) of audio (mp3)
+- [x] Download volledige playlists
+- [x] Download alle video's van een kanaal
+- [x] Queue-systeem voor meerdere downloads
+- [x] Automatische resolutie-aanpassing (standaard 1080p)
+- [ ] Configureerbare download-resolutie (in progress)
+- [ ] Config-bestand voor standaard instellingen (in progress)
+- [ ] CLI-argumenten support (in progress)
+
+---
 
 ## Vereisten
 
 * Python 3.x
 * `yt_dlp`
+
+---
 
 ## Installatie
 
@@ -27,6 +48,8 @@ cd youtube_video_downloader/src/
 pip install -r requirements.txt
 ```
 
+---
+
 ## Gebruik
 
 Run het script:
@@ -35,43 +58,62 @@ Run het script:
 python3 main.py
 ```
 
+Download één publieke video:
+
+```bash
+download_video
+```
+
+Sluit het script af:
+
+```bash
+exit
+```
+
 Run de `help` command uit om alle commands te zien.
 
-## Command lijst
+---
+
+## Commands
+### Queue commands
+
 | Command | Beschrijving|
 | :------ | :---------- |
 | add_to_queue | Voegt een link toe aan de download queue |
 | download_video_queue | Download de download queue als video |
 | download_audio_queue | Download de download queue als audio |
 | list_queue | Print alle links in de download queue |
+
+### Download commands
+
+| Command | Beschrijving |
+| :------ | :----------- |
+| download_video | Download een video als video |
+| download_audio | Download een video als audio |
 | download_playlist_video | Download alle videos in een playlist als video |
 | download_playlist_audio | Download alle videos in een playlist als audio |
 | download_channel_video | Download alle videos van een kanaal als video |
 | download_channel_audio | Download alle videos van een kanaal als audio |
-| download_video | Download een video als video |
-| download_audio | Download een video als audio |
+
+### Utility commands
+| Command | Beschrijving |
+| :------ | :----------- |
 | clear | Leegt de command-line |
 | exit | Stopt het programma. De download queue wordt niet opgeslagen |
 | help | Print alle commands en hun functie |
+
+---
 
 ## Details
 
 De downloadresolutie is 1080p. <br>
 Als 1080p geen optie is dan download het programma een resolutie lager.
 
+---
+
 ## Bijdragen
 
-Wil je bijdragen? Voel je vrij om het repo te forken en een pull request of issue te maken.
-
-## Licentie
-
-Dit project is te gebruiken onder de GPL-licentie.
-
-## To do's
-
-- [ ] Download resolutie kunnen veranderd worden door de gebruiker
-- [ ] Standaard instellingen config
-- [ ] Download via cli
+Wil je bijdragen? Voel je vrij om het repo te forken en een pull request te maken of een issue te melden.
 
 ---
 
@@ -123,6 +165,12 @@ YouTube throttlet tijdelijk jouw IP.
 * Gebruik Python 3.x.
 * Zorg voor een stabiele internetverbinding.
 * Start het script vanuit een terminal met voldoende rechten (bijv. `sudo` op Linux/macOS).
+
+---
+
+## Licensie
+
+Dit project is te gebruiken onder de GPL-licentie.
 
 ---
 
