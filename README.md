@@ -6,6 +6,8 @@
 
 Een cli Python-tool voor het downloaden van YouTube-video's, playlists en kanalen.
 
+---
+
 ## Functies
 
 - [x] Download YouTube-video's als video (mp4) of audio (mp3)
@@ -17,10 +19,14 @@ Een cli Python-tool voor het downloaden van YouTube-video's, playlists en kanale
 - [ ] Config-bestand voor standaard instellingen (in progress)
 - [ ] CLI-argumenten support (in progress)
 
+---
+
 ## Vereisten
 
 * Python 3.x
 * `yt_dlp`
+
+---
 
 ## Installatie
 
@@ -41,6 +47,8 @@ cd youtube_video_downloader/src/
 ```bash
 pip install -r requirements.txt
 ```
+
+---
 
 ## Gebruik
 
@@ -63,6 +71,8 @@ exit
 ```
 
 Run de `help` command uit om alle commands te zien.
+
+---
 
 ## Commands
 ### Queue commands
@@ -92,18 +102,18 @@ Run de `help` command uit om alle commands te zien.
 | exit | Stopt het programma. De download queue wordt niet opgeslagen |
 | help | Print alle commands en hun functie |
 
+---
+
 ## Details
 
 De downloadresolutie is 1080p. <br>
 Als 1080p geen optie is dan download het programma een resolutie lager.
 
+---
+
 ## Bijdragen
 
-Wil je bijdragen? Voel je vrij om het repo te forken en een pull request of issue te maken.
-
-## Licentie
-
-Dit project is te gebruiken onder de GPL-licentie.
+Wil je bijdragen? Voel je vrij om het repo te forken en een pull request te maken of een issue te melden.
 
 ---
 
@@ -155,6 +165,12 @@ YouTube throttlet tijdelijk jouw IP.
 * Gebruik Python 3.x.
 * Zorg voor een stabiele internetverbinding.
 * Start het script vanuit een terminal met voldoende rechten (bijv. `sudo` op Linux/macOS).
+
+---
+
+## Licensie
+
+Dit project is te gebruiken onder de GPL-licentie.
 
 ---
 
