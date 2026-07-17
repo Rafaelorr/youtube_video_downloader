@@ -9,7 +9,7 @@ print("Type 'help' voor een lijst commands")
 
 # user command loop
 while True:
-  command:str = input(": ")
+  command:str = input(": ").lower()
 
   if command == "add":
     add_to_queue(download_queue_list)
@@ -19,39 +19,31 @@ while True:
   
   elif command == "queue_audio":
     download_audio_queue(download_queue_list)
-
-  elif command == "audio":
-    link :str = input("Video link: ")
-    download_audio(link)
   
+  elif command == "list":
+    list_queue(download_queue_list=download_queue_list)
+
   elif command == "video":
     link :str = input("Video link: ")
     download_video(link)
 
-  elif command == "exit":
-    want_exit:str = input("Wil je echt stoppen? y/n ")
-    while not want_exit == "y" and not want_exit == "n":
-      print("Foute input")
-      want_exit:str = input("Wil je echt stoppen ? y/n ")
-    if want_exit == "y":
-      exit()
-    continue
-  elif command == "list":
-    list_queue(download_queue_list=download_queue_list)
+  elif command == "audio":
+    link :str = input("Video link: ")
+    download_audio(link)
 
   elif command == "playlist_video":
     playlist_link :str = input("Playlist link: ")
     toon_playlist_index :bool = bool(input("Wil je de playlist index toe voegen aan de bestandnamen? (enter = neen): "))
     download_playlist_video(playlist_link, toon_playlist_index=toon_playlist_index)
-
-  elif command == "channel_video":
-    channel_link :str = input("Kanaal link: ")
-    download_channel_video(channel_link)
-
+  
   elif command == "playlist_audio":
     playlist_link :str = input("Playlist link: ")
     toon_playlist_index :bool = bool(input("Wil je de playlist index toe voegen aan de bestandnamen? (enter = neen): "))
     download_playlist_audio(playlist_link, toon_playlist_index=toon_playlist_index)
+
+  elif command == "channel_video":
+    channel_link :str = input("Kanaal link: ")
+    download_channel_video(channel_link)
 
   elif command == "channel_audio":
     channel_link :str = input("Kanaal link: ")
@@ -59,5 +51,14 @@ while True:
 
   elif command == "clear":
     os.system('cls' if os.name == 'nt' else 'clear')
+
+  elif command == "exit":
+    want_exit:str = input("Wil je echt stoppen? y/n ")
+    while not want_exit == "y" and not want_exit == "n":
+      want_exit:str = input("Wil je echt stoppen ? y/n ")
+    if want_exit == "y":
+      exit()
+    continue
+
   else:
     help()
