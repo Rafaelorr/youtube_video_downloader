@@ -11,20 +11,20 @@ print("Type 'help' voor een lijst commands")
 while True:
   command:str = input(": ")
 
-  if command == "add_to_queue":
+  if command == "add":
     add_to_queue(download_queue_list)
 
-  elif command == "download_video_queue":
+  elif command == "queue_video":
     download_video_queue(download_queue_list)
   
-  elif command == "download_audio_queue":
+  elif command == "queue_audio":
     download_audio_queue(download_queue_list)
 
-  elif command == "download_audio":
+  elif command == "audio":
     link :str = input("Video link: ")
     download_audio(link)
   
-  elif command == "download_video":
+  elif command == "video":
     link :str = input("Video link: ")
     download_video(link)
 
@@ -36,24 +36,24 @@ while True:
     if want_exit == "y":
       exit()
     continue
-  elif command == "list_queue":
+  elif command == "list":
     list_queue(download_queue_list=download_queue_list)
 
-  elif command == "download_playlist_video":
+  elif command == "playlist_video":
     playlist_link :str = input("Playlist link: ")
     toon_playlist_index :bool = bool(input("Wil je de playlist index toe voegen aan de bestandnamen? (enter = neen): "))
     download_playlist_video(playlist_link, toon_playlist_index=toon_playlist_index)
 
-  elif command == "download_channel_video":
+  elif command == "channel_video":
     channel_link :str = input("Kanaal link: ")
     download_channel_video(channel_link)
 
-  elif command == "download_playlist_audio":
+  elif command == "playlist_audio":
     playlist_link :str = input("Playlist link: ")
     toon_playlist_index :bool = bool(input("Wil je de playlist index toe voegen aan de bestandnamen? (enter = neen): "))
     download_playlist_audio(playlist_link, toon_playlist_index=toon_playlist_index)
 
-  elif command == "download_channel_audio":
+  elif command == "channel_audio":
     channel_link :str = input("Kanaal link: ")
     download_channel_audio(channel_link)
 
