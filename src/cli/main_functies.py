@@ -9,17 +9,28 @@ def list_queue(download_queue_list:list) -> None:
 
 def help():
   print("""
-   add: voegt een video toe aan de download_queue,
-   queue_video: downloadt de queue als video,
-   queue_audio: downloadt de queue als audio,
-   list: toont de download_queue,
-   exit: stopt het programma 
-   WAARSCHUWING: de download_queue blijft niet bewaart als je het programma stopt,
-   clear: maakt de command line leeg, 
-   playlist_video: downloadt een playlist, 
-   channel_video: downloadt een youtube kanaal, 
-   playlist_audio: downloadt een playlist als audio, 
-   channel_audio: downloadt een youtube kanaal als audio, 
-   audio: downloadt een video als audio, 
-   video: downloadt een video, 
-   help: geeft een lijst van alle commands en hun functie. """)
+    # Download Commands
+    ## Download Queue Commands
+    * add: voegt een video toe aan de download_queue
+    * queue_video: downloadt de queue als video
+    * queue_audio: downloadt de queue als audio
+    * list: toont de download_queue
+
+    ## Download Enkele Video's
+    * video: downloadt een video
+    * audio: downloadt een video als audio
+
+    ## Download Playlists
+    * playlist_video: downloadt een playlist
+    * playlist_audio: downloadt een playlist als audio
+    
+    ## Download Kanalen
+    * channel_video: downloadt een youtube kanaal
+    * channel_audio: downloadt een youtube kanaal als audio
+
+        
+    # Extra's
+    * help: geeft een lijst van alle commands en hun functie
+    * clear: maakt de command line leeg
+    * exit: stopt het programma
+  """)
