@@ -77,30 +77,30 @@ Run de `help` command uit om alle commands te zien.
 ## Commands
 ### Queue commands
 
-| Command | Beschrijving|
-| :------ | :---------- |
-| add_to_queue | Voegt een link toe aan de download queue |
-| download_video_queue | Download de download queue als video |
-| download_audio_queue | Download de download queue als audio |
-| list_queue | Print alle links in de download queue |
+| Command     | Beschrijving                             |
+| :---------- | :--------------------------------------- |
+| add         | Voegt een link toe aan de download queue |
+| queue_video | Download de download queue als video     |
+| queue_audio | Download de download queue als audio     |
+| list        | Print alle links in de download queue    |
 
 ### Download commands
 
-| Command | Beschrijving |
-| :------ | :----------- |
-| download_video | Download een video als video |
-| download_audio | Download een video als audio |
-| download_playlist_video | Download alle videos in een playlist als video |
-| download_playlist_audio | Download alle videos in een playlist als audio |
-| download_channel_video | Download alle videos van een kanaal als video |
-| download_channel_audio | Download alle videos van een kanaal als audio |
+| Command        | Beschrijving                                   |
+| :------------- | :--------------------------------------------- |
+| video          | Download een video als video                   |
+| audio          | Download een video als audio                   |
+| playlist_video | Download alle videos in een playlist als video |
+| playlist_audio | Download alle videos in een playlist als audio |
+| channel_video  | Download alle videos van een kanaal als video  |
+| channel_audio  | Download alle videos van een kanaal als audio  |
 
 ### Utility commands
-| Command | Beschrijving |
-| :------ | :----------- |
-| clear | Leegt de command-line |
-| exit | Stopt het programma. De download queue wordt niet opgeslagen |
-| help | Print alle commands en hun functie |
+| Command | Beschrijving                                                 |
+| :------ | :----------------------------------------------------------- |
+| clear   | Leegt de command-line                                        |
+| exit    | Stopt het programma. De download queue wordt niet opgeslagen |
+| help    | Print alle commands en hun functie                           |
 
 ---
 
