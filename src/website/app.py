@@ -14,16 +14,6 @@ app.secret_key = ''.join(random.choices(string.ascii_letters + string.digits, k=
 def home():
     return render_template("index.html")
 
-def download_video_in_background(url, ydl_opts):
-    threading.Thread(target=download_video, args=(url, ydl_opts)).start()
-
-def download_with_yt_dlp(link: str, options: dict) -> tempfile.NamedTemporaryFile:
-    temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=options.get('suffix', '.mp4'))
-    ydl_opts = {'outtmpl': temp_file.name, **options}
-    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        ydl.download([link])
-    return temp_file
-
 @app.route('/download_video', methods=['POST'])
 def download_video():
     url = request.form['url']
