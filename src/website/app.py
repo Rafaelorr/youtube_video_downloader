@@ -3,9 +3,11 @@ import threading
 import yt_dlp
 import tempfile
 import os
+import random
+import string
 
 app = Flask(__name__)
-app.secret_key = 'dev'  # Required for flashing messages
+app.secret_key = ''.join(random.choices(string.ascii_letters + string.digits, k=10))  # Required for flashing messages
 
 
 @app.route("/")
