@@ -1,10 +1,10 @@
-# YouTube Video Downloader
+# YTGrab
 
 ![Python 3.x](https://img.shields.io/badge/python-3.x-blue)
 ![License: GPL](https://img.shields.io/badge/license-GPL-green)
 ![Status: Active](https://img.shields.io/badge/status-active-brightgreen)
 
-Een cli Python-tool voor het downloaden van YouTube-video's, playlists en kanalen.
+YTGrab is een cli Python-tool voor het downloaden van YouTube-video's, playlists en kanalen als video's of uitsluitend audio.
 
 ---
 
@@ -33,13 +33,13 @@ Een cli Python-tool voor het downloaden van YouTube-video's, playlists en kanale
 1. Clone de repo:
 
 ```bash
-git clone https://github.com/Rafaelorr/youtube_video_downloader.git
+git clone https://github.com/Rafaelorr/YTGrab.git
 ```
 
 2. Ga naar de directory:
 
 ```bash
-cd youtube_video_downloader/src/
+cd YTGrab/src/
 ```
 
 3. Installeer de benodigde dependencies:
@@ -174,4 +174,4 @@ Dit project is te gebruiken onder de GPL-licentie.
 
 ---
 
-Kom je er niet uit? Meld het probleem via de [Issues-pagina](https://github.com/Rafaelorr/youtube_video_downloader/issues).
+Kom je er niet uit? Meld het probleem via de [Issues-pagina](https://github.com/Rafaelorr/YTGrab/issues).
